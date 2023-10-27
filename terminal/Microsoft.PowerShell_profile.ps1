@@ -10,6 +10,9 @@
 #   return $out
 # }
 
+# icons
+Import-Module Terminal-Icons
+
 # Starship terminal CWD
 function Invoke-Starship-PreCommand {
   $loc = $executionContext.SessionState.Path.CurrentLocation;
@@ -23,11 +26,21 @@ function Invoke-Starship-PreCommand {
 
 # Auto complete
 Import-Module PSReadLine
-
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
 
 # Dir auto complete
+# Import-Module DirectoryPredictor
+# Set-DirectoryPredictorOption -DirectoryMode Mixed
+# Set-DirectoryPredictorOption -SortMixedResults Folders
+
+# ls allias
+Import-Module PowerColorLS
+function Power-Color {
+  PowerColorLS -a
+}
+
+Set-Alias -Name ls -Value Power-Color -Option AllScope
 
 # Starship
 Invoke-Expression (&starship init powershell)
