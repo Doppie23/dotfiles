@@ -1,6 +1,4 @@
 format = """
-$username\
-$hostname\
 $directory\
 $git_branch\
 $git_state\
@@ -10,7 +8,6 @@ $nodejs\
 $python\
 $dotnet\
 $fill\
-$cmd_duration $jobs\
 $line_break\
 $time\
 $character"""
@@ -63,10 +60,6 @@ style = "bright-black"
 [git_metrics]
 disabled = false
 
-[cmd_duration]
-format = "[$duration]($style)"
-style = "yellow"
-
 [memory_usage]
 symbol = " "
 
@@ -78,9 +71,3 @@ disabled = false
 time_format = "%R"
 style = "bold white"
 format = "[$time]($style)"
-
-[custom.stunnel]
-when = "ps aux | grep stunnel | grep -v grep"
-command = "ps -o etime= -p $(ps aux | grep stunnel | grep -v grep | awk '{print $2}')"
-style = "red"
-format = "[TUNNEL OPEN for $output]($style)"
