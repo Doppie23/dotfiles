@@ -1,14 +1,10 @@
-# CWD windows terminal
-# function prompt {
-#   $loc = $executionContext.SessionState.Path.CurrentLocation;
+# Check if a venv (virtual environment) is present in the current directory
+$venvDir = Join-Path $PWD.Path '.\.venv'
 
-#   $out = ""
-#   if ($loc.Provider.Name -eq "FileSystem") {
-#     $out += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
-#   }
-#   $out += "PS $loc$('>' * ($nestedPromptLevel + 1)) ";
-#   return $out
-# }
+if (Test-Path $venvDir -PathType Container) {
+    Write-Host "Activating virtual environment in $($PWD.Path)..."
+    .\.venv\Scripts\Activate.ps1
+}
 
 # icons
 Import-Module Terminal-Icons

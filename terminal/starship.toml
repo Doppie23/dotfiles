@@ -1,3 +1,6 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
 $directory\
 $git_branch\
@@ -16,7 +19,8 @@ $character"""
 format = "[| $symbol($version )]($style)"
 
 [python]
-format = "[| $symbol($version )]($style)"
+symbol = " "
+format = '[| $symbol($version)]($style)[( \($virtualenv\)) ](fg:green)'
 
 [dotnet]
 format = "[| $symbol($version )]($style)"
