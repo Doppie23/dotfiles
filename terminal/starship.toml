@@ -2,6 +2,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+[\u256d\u2500](purple)\
+$time\
 $directory\
 $git_branch\
 $git_state\
@@ -12,7 +14,7 @@ $python\
 $dotnet\
 $fill\
 $line_break\
-$time\
+[\u2570\u2500](purple)\
 $character"""
 
 [nodejs]
@@ -33,9 +35,9 @@ symbol = " "
 style = "blue"
 read_only = " "
 truncation_symbol = '…/'
-truncation_length = 2
+truncation_length = 1
 truncate_to_repo = false
-format = '[ $path]($style)[$read_only]($read_only_style) '
+format = '[ |  $path]($style)[$read_only]($read_only_style) '
 
 [character]
 success_symbol = "[ ❯](purple)"
@@ -44,7 +46,7 @@ vicmd_symbol = "[ ❮](green)"
 
 [git_branch]
 symbol = " "
-format = "[$symbol$branch]($style) "
+format = "[| $symbol$branch]($style) "
 style = "fg:purple"
 
 [jobs]
@@ -73,5 +75,5 @@ symbol = " "
 [time]
 disabled = false
 time_format = "%R"
-style = "bold white"
-format = "[$time]($style)"
+style = "fg:bold purple"
+format = "[ $time]($style)"
