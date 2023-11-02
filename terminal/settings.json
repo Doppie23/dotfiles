@@ -406,8 +406,5 @@
   "startOnUserLogin": false,
   "themes": [],
   "useAcrylicInTabRow": true,
-  "windowingBehavior": "useAnyExisting",
-  "fileAssociations": {
-    ".bat": "Command Prompt"
-  }
+  "windowingBehavior": "useAnyExisting"
 }
