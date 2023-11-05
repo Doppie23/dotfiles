@@ -403,7 +403,7 @@
       "yellow": "#808000"
     }
   ],
-  "startOnUserLogin": false,
+  "startOnUserLogin": true,
   "themes": [],
   "useAcrylicInTabRow": true,
   "windowingBehavior": "useAnyExisting"

@@ -2,9 +2,14 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+[󰇝](#a3aed2)\
+[ ](bg:blue fg:black)\
+[](bg:#374362 fg:blue)\
+$directory\
+[\ue0b4](#374362)\
+$line_break\
 [\u256d\u2500](purple)\
 $time\
-$directory\
 $git_branch\
 $git_state\
 $git_status\
@@ -12,6 +17,7 @@ $git_metrics\
 $nodejs\
 $python\
 $dotnet\
+$memory_usage\
 $fill\
 $line_break\
 [\u2570\u2500](purple)\
@@ -32,12 +38,12 @@ detect_extensions =	['sln', 'csproj', 'fsproj', 'xproj']
 symbol = " "
 
 [directory]
-style = "blue"
+style = "bg:#374362 fg:#769ff0"
 read_only = " "
 truncation_symbol = '…/'
-truncation_length = 1
+truncation_length = 4
 truncate_to_repo = false
-format = '[ |  $path]($style)[$read_only]($read_only_style) '
+format = '[  $path ]($style)[$read_only]($read_only_style)'
 
 [character]
 success_symbol = "[ ❯](purple)"
@@ -67,7 +73,11 @@ style = "bright-black"
 disabled = false
 
 [memory_usage]
-symbol = " "
+disabled = false
+threshold = -1
+symbol = '󰍛'
+style = 'bold cyan'
+format = "[| $symbol $ram]($style) "
 
 [rust]
 symbol = " "
@@ -76,4 +86,4 @@ symbol = " "
 disabled = false
 time_format = "%R"
 style = "fg:bold purple"
-format = "[ $time]($style)"
+format = "[  $time ]($style)"
