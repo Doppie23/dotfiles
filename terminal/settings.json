@@ -83,7 +83,7 @@
   "newTabPosition": "afterCurrentTab",
   "profiles": {
     "defaults": {
-      "colorScheme": "Catppuccin Macchiato",
+      "colorScheme": "Brogrammer",
       "experimental.retroTerminalEffect": false,
       "font": {
         "face": "CaskaydiaCove Nerd Font Mono"
@@ -94,16 +94,16 @@
     },
     "list": [
       {
+        "colorScheme": "Horizon",
         "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
         "hidden": false,
         "name": "PowerShell",
+        "opacity": 35,
         "source": "Windows.Terminal.PowershellCore",
         "startingDirectory": "%USERPROFILE%"
       },
       {
-        "colorScheme": {
-          "light": "Campbell"
-        },
+        "colorScheme": "Hardcore",
         "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "hidden": false,
@@ -240,6 +240,52 @@
       "selectionBackground": "#5B6078",
       "white": "#B8C0E0",
       "yellow": "#EED49F"
+    },
+    {
+      "background": "#121212",
+      "black": "#1B1D1E",
+      "blue": "#66D9EF",
+      "brightBlack": "#505354",
+      "brightBlue": "#66D9EF",
+      "brightCyan": "#A3BABF",
+      "brightGreen": "#BEED5F",
+      "brightPurple": "#9E6FFE",
+      "brightRed": "#FF669D",
+      "brightWhite": "#F8F8F2",
+      "brightYellow": "#E6DB74",
+      "cursorColor": "#BBBBBB",
+      "cyan": "#5E7175",
+      "foreground": "#A0A0A0",
+      "green": "#A6E22E",
+      "name": "Hardcore",
+      "purple": "#9E6FFE",
+      "red": "#F92672",
+      "selectionBackground": "#453B39",
+      "white": "#CCCCC6",
+      "yellow": "#FD971F"
+    },
+    {
+      "background": "#1C1E26",
+      "black": "#0A0A0D",
+      "blue": "#26BBD9",
+      "brightBlack": "#848484",
+      "brightBlue": "#3FC4DE",
+      "brightCyan": "#6BE4E6",
+      "brightGreen": "#3FDAA4",
+      "brightPurple": "#F075B5",
+      "brightRed": "#EC6A88",
+      "brightWhite": "#E5E5E5",
+      "brightYellow": "#FBC3A7",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#59E1E3",
+      "foreground": "#BDC0C2",
+      "green": "#29D398",
+      "name": "Horizon",
+      "purple": "#EE64AC",
+      "red": "#E95678",
+      "selectionBackground": "#FFFFFF",
+      "white": "#E5E5E5",
+      "yellow": "#FAB795"
     },
     {
       "background": "#282C34",
