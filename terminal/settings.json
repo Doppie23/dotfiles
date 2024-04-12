@@ -4,16 +4,16 @@
   "actions": [
     {
       "command": {
+        "action": "newTab"
+      },
+      "keys": "ctrl+t"
+    },
+    {
+      "command": {
         "action": "copy",
         "singleLine": false
       },
       "keys": "ctrl+c"
-    },
-    {
-      "command": {
-        "action": "newTab"
-      },
-      "keys": "ctrl+t"
     },
     {
       "command": "paste",
@@ -22,10 +22,10 @@
     {
       "command": {
         "action": "splitPane",
-        "split": "up",
+        "split": "auto",
         "splitMode": "duplicate"
       },
-      "keys": "ctrl+minus"
+      "keys": "ctrl+d"
     },
     {
       "command": "find",
@@ -34,10 +34,10 @@
     {
       "command": {
         "action": "splitPane",
-        "split": "auto",
+        "split": "up",
         "splitMode": "duplicate"
       },
-      "keys": "ctrl+d"
+      "keys": "ctrl+]"
     },
     {
       "command": "closePane",
@@ -60,6 +60,13 @@
     {
       "command": "unbound",
       "keys": "f9"
+    },
+    {
+      "command": {
+        "action": "adjustFontSize",
+        "delta": -1.0
+      },
+      "keys": "ctrl+minus"
     }
   ],
   "alwaysShowNotificationIcon": true,
@@ -145,6 +152,18 @@
         "hidden": true,
         "name": "Developer PowerShell for VS 2022",
         "source": "Windows.Terminal.VisualStudio"
+      },
+      {
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "hidden": true,
+        "name": "Ubuntu",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+        "hidden": false,
+        "name": "Ubuntu",
+        "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
       }
     ]
   },
@@ -424,6 +443,29 @@
       "selectionBackground": "#FFFFFF",
       "white": "#D3D7CF",
       "yellow": "#C4A000"
+    },
+    {
+      "background": "#300A24",
+      "black": "#171421",
+      "blue": "#0037DA",
+      "brightBlack": "#767676",
+      "brightBlue": "#08458F",
+      "brightCyan": "#2C9FB3",
+      "brightGreen": "#26A269",
+      "brightPurple": "#A347BA",
+      "brightRed": "#C01C28",
+      "brightWhite": "#F2F2F2",
+      "brightYellow": "#A2734C",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#3A96DD",
+      "foreground": "#FFFFFF",
+      "green": "#26A269",
+      "name": "Ubuntu-ColorScheme",
+      "purple": "#881798",
+      "red": "#C21A23",
+      "selectionBackground": "#FFFFFF",
+      "white": "#CCCCCC",
+      "yellow": "#A2734C"
     },
     {
       "background": "#000000",
