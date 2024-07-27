@@ -26,11 +26,18 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 # Set-DirectoryPredictorOption -SortMixedResults Folders
 
 # ls allias
-function Power-Color {
-  PowerColorLS -a
-}
+# Import-Module PowerColorLS
+# function Power-Color {
+#   PowerColorLS -a
+# }
 
-Set-Alias -Name ls -Value Power-Color -Option AllScope
+# Set-Alias -Name ls -Value Power-Color -Option AllScope
 
 # Starship
 Invoke-Expression (&starship init powershell)
+
+# FZF and after open explorer at file location
+function ifzf {
+  ii (Split-Path -Parent (fzf))
+}
+New-Alias -Name search -Value ifzf
