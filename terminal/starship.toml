@@ -1,1 +1,87 @@
-C:/Users/Daniel/.config/starship.toml
+format = """
+[󰇝](#CBF7ED)\
+[  ](bg:#CBF7ED fg:#090c0c)\
+[](bg:#8EA8C3 fg:#CBF7ED)\
+$directory\
+[](fg:#8EA8C3 bg:#406E8E)\
+$git_branch\
+$git_status\
+$git_metrics\
+[](fg:#406E8E bg:#23395B)\
+$nodejs\
+$rust\
+$golang\
+$php\
+$python\
+$dotnet\
+[](fg:#23395B bg:#161925)\
+$time\
+[ ](fg:#161925)\
+\n$character"""
+
+[directory]
+style = "fg:#23395B bg:#8EA8C3"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#406E8E"
+format = '[[ $symbol $branch ](fg:#8EA8C3 bg:#406E8E)]($style)'
+
+[git_status]
+style = "bg:#406E8E"
+format = '[[($all_status$ahead_behind )](fg:#8EA8C3 bg:#406E8E)]($style)'
+
+[git_metrics]
+added_style = "bg:#406E8E fg:green"
+deleted_style = "fg:red bg:#406E8E"
+format = "([+$added ]($added_style))([-$deleted ]($deleted_style))"
+disabled = false
+
+[nodejs]
+symbol = ""
+style = "bg:#23395B"
+format = '[[ $symbol ($version) ](fg:#8EA8C3 bg:#23395B)]($style)'
+
+[python]
+symbol = ""
+style = "bg:#23395B"
+# format = '[| $symbol($version)]($style)[( \($virtualenv\)) ](fg:green)'
+format = '[[ $symbol ($version) ](fg:#8EA8C3 bg:#23395B)]($style)[(\($virtualenv\))](bg:#23395B fg:green)'
+
+[dotnet]
+format = '[[ $symbol($version) ](fg:#8EA8C3 bg:#23395B)]($style)'
+detect_extensions =	['sln', 'csproj', 'fsproj', 'xproj']
+
+[rust]
+symbol = ""
+style = "bg:#23395B"
+format = '[[ $symbol ($version) ](fg:#8EA8C3 bg:#23395B)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#23395B"
+format = '[[ $symbol ($version) ](fg:#8EA8C3 bg:#23395B)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#23395B"
+format = '[[ $symbol ($version) ](fg:#8EA8C3 bg:#23395B)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#161925"
+format = '[[  $time ](fg:#a0a9cb bg:#161925)]($style)'
+
+[character]
+success_symbol = "[ ❯](green)"
+error_symbol = "[ ❯](red)"
