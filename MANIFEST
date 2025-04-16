@@ -1,3 +1,4 @@
 Documents\PowerShell\Microsoft.PowerShell_profile.ps1|symlink|
 .config\starship.toml|symlink|
 .config\wezterm|symlink|
+AppData\Local\nvim|symlink|
