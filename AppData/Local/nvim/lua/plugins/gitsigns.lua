@@ -14,6 +14,9 @@ return {
 				map("n", "<leader>gh", gitsigns.preview_hunk, {
 					desc = "Preview [g]it [h]unk",
 				})
+				map("n", "<leader>gr", gitsigns.reset_hunk, {
+					desc = "[r]eset hunk",
+				})
 			end,
 		},
 	},

@@ -22,8 +22,18 @@ return {
 				},
 			},
 			indent = {},
+			lazygit = {},
 		},
 		keys = {
+			-- Lazygit
+			{
+				"<leader>gg",
+				function()
+					Snacks.lazygit()
+				end,
+				desc = "Open lazygit",
+			},
+
 			-- Terminal
 			{
 				"<leader><esc>",

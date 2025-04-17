@@ -77,7 +77,8 @@ vim.keymap.set("n", "<esc>", function()
 		end
 	end
 	vim.cmd("nohlsearch")
-end)
+	vim.api.nvim_feedkeys(vim.keycode("<esc>"), "n", false)
+end, { noremap = true, silent = true })
 
 vim.keymap.set({ "n", "v", "i" }, "<C-s>", "<cmd>write<CR>")
 vim.keymap.set("n", "<C-_>", "gcc", { remap = true, silent = true })
