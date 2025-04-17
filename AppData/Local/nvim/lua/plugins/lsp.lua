@@ -3,7 +3,7 @@
 
 local servers = {
 	lua_ls = {},
-	basedpyright = {},
+	pyright = {},
 	csharp_ls = {},
 	emmet_language_server = {},
 	ts_ls = {},
@@ -54,7 +54,7 @@ return {
 
 					vim.diagnostic.config({ virtual_text = true })
 
-					vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {
+					vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
 						desc = "Show diagnostics under the cursor",
 					})
 				end,
