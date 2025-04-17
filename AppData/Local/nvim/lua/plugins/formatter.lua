@@ -2,14 +2,13 @@
 -- https://mason-registry.dev/registry/list
 
 return {
-	"stevearc/conform.nvim",
-	dependencies = {
-		"williamboman/mason.nvim",
-		"zapling/mason-conform.nvim",
-	},
-	config = function()
-		require("mason").setup({})
-		require("conform").setup({
+	{
+		"stevearc/conform.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+			{ "zapling/mason-conform.nvim", opts = {} },
+		},
+		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "black" },
@@ -40,7 +39,6 @@ return {
 				-- These options will be passed to conform.format()
 				lsp_format = "fallback",
 			},
-		})
-		require("mason-conform").setup()
-	end,
+		},
+	},
 }
