@@ -127,6 +127,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- use two space indent for certain files
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "javascript", "typescript", "typescriptreact", "javascriptreact", "json", "haskell" },
+	callback = function()
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.expandtab = true
+	end,
+})
+
 -- Setup lazy.nvim
 require("lazy").setup({
 	colorscheme = function() end,
