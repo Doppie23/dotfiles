@@ -129,7 +129,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- use two space indent for certain files
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "javascript", "typescript", "typescriptreact", "javascriptreact", "json", "haskell" },
+	pattern = {
+		"javascript",
+		"typescript",
+		"typescriptreact",
+		"javascriptreact",
+		"html",
+		"css",
+		"json",
+		"jsonl",
+		"jsonc",
+		"haskell",
+	},
 	callback = function()
 		vim.opt_local.shiftwidth = 2
 		vim.opt_local.tabstop = 2
