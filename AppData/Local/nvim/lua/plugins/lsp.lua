@@ -8,6 +8,8 @@ local servers = {
 	emmet_language_server = {},
 	ts_ls = {},
 	cssls = {},
+	html = {},
+	jsonls = {},
 }
 
 return {
