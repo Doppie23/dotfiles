@@ -22,7 +22,16 @@ return {
 				},
 			},
 			indent = {},
-			lazygit = {},
+			lazygit = {
+				config = {
+					os = {
+						edit = "nvim {{filename}}",
+						editAtLine = "nvim +{{line}} {{filename}}",
+						editAtLineAndWait = "nvim +{{line}} {{filename}}",
+						-- editPreset = "nvim",
+					},
+				},
+			},
 		},
 		keys = {
 			-- Lazygit
