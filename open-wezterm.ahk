@@ -3,13 +3,25 @@
 
 #Esc::
 WinTitle := "ahk_exe wezterm-gui.exe"
+DetectHiddenWindows, On
 
 IfWinActive, %WinTitle%
 {
-    WinMinimize, %WinTitle%
+    WinActivate, ahk_class Shell_TrayWnd
+    WinHide, %WinTitle%
 }
 else IfWinExist, %WinTitle%
 {
+    DetectHiddenWindows, Off
+    IfWinNotExist, %WinTitle%
+    {
+        ; could not find the window so its hidden
+        WinShow, %WinTitle%
+    }
+    else
+    {
+        WinRestore, %WinTitle%
+    }
     WinActivate, %WinTitle%
 }
 else
