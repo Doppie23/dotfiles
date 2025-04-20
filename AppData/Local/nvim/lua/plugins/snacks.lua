@@ -45,7 +45,7 @@ return {
 
 			-- Terminal
 			{
-				"<leader><esc>",
+				"<leader>j",
 				function()
 					Snacks.terminal.toggle(nil, {
 						win = {
