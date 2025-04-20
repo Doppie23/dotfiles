@@ -15,6 +15,8 @@ return {
 					input = {
 						keys = {
 							["<Esc>"] = { "close", mode = { "n", "i" } },
+							["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+							["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
 						},
 					},
 				},
