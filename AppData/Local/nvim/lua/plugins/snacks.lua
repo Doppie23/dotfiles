@@ -1,8 +1,6 @@
 -- winget install sharkdp.fd
 -- winget install burntsushi.ripgrep.msvc
 
--- TODO: use Snacks.picker.actions.qflist(picker) to send items to Quickfix list
-
 return {
 	{
 		"folke/snacks.nvim",
@@ -33,6 +31,18 @@ return {
 				},
 			},
 		},
+		config = function(_, opts)
+			require("snacks").setup(opts)
+			vim.api.nvim_create_user_command("OpenLastTerm", function()
+				local win = require("snacks").terminal.get(nil, { create = false })
+				if not win or not win.buf or not vim.api.nvim_buf_is_valid(win.buf) then
+					vim.notify("Could not find a terminal to open")
+					return
+				end
+				vim.api.nvim_set_current_buf(win.buf)
+				vim.cmd("startinsert")
+			end, { desc = "Open the last snacks.terminal" })
+		end,
 		keys = {
 			-- Lazygit
 			{
