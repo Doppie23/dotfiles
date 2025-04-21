@@ -2,6 +2,7 @@
 ;; to auto start
 
 #Esc::
+#`::
 WinTitle := "ahk_exe wezterm-gui.exe"
 DetectHiddenWindows, On
 
