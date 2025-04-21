@@ -26,6 +26,8 @@ config.initial_rows = 52
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+
 config.keys = {
 	{
 		key = "Space",
