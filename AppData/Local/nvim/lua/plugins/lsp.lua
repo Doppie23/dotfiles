@@ -10,6 +10,7 @@ local servers = {
 	cssls = {},
 	html = {},
 	jsonls = {},
+	gopls = {},
 }
 
 return {
