@@ -4,7 +4,6 @@
 local servers = {
 	lua_ls = {},
 	pyright = {},
-	csharp_ls = {},
 	emmet_language_server = {},
 	ts_ls = {},
 	cssls = {},
@@ -14,6 +13,23 @@ local servers = {
 }
 
 return {
+	{
+		"seblyng/roslyn.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+		},
+		ft = "cs",
+		opts = {
+			-- your configuration comes here; leave empty for default settings
+			-- NOTE: You must configure `cmd` in `config.cmd` unless you have installed via mason
+		},
+		config = function(_, opts)
+			require("roslyn").setup(opts)
+			if not require("mason-registry").is_installed("roslyn") then
+				vim.cmd("MasonInstall roslyn")
+			end
+		end,
+	},
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
