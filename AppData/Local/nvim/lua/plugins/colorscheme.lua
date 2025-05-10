@@ -21,4 +21,30 @@ return {
 		opts = {},
 		lazy = true,
 	},
+	{
+		"webhooked/kanso.nvim",
+		opts = {},
+		lazy = true,
+	},
+	{
+		"forest-nvim/sequoia.nvim",
+		opts = {},
+		lazy = true,
+	},
+	{
+		"mistweaverco/retro-theme.nvim",
+		opts = {},
+		lazy = true,
+	},
+	{
+		"vague2k/vague.nvim",
+		opts = {},
+		lazy = true,
+	},
+	{
+		"bluz71/vim-moonfly-colors",
+		name = "moonfly",
+		opts = {},
+		lazy = true,
+	},
 }
