@@ -10,6 +10,13 @@ local servers = {
 	html = {},
 	jsonls = {},
 	gopls = {},
+	tinymist = {
+		settings = {
+			formatterMode = "typstyle",
+			exportPdf = "onType",
+			semanticTokens = "disable",
+		},
+	},
 }
 
 return {
@@ -55,11 +62,7 @@ return {
 			require("mason-lspconfig").setup_handlers({
 				function(server)
 					local config = servers[server] or {}
-					vim.lsp.config(server, {
-						settings = {
-							[server] = config,
-						},
-					})
+					vim.lsp.config(server, config)
 					vim.lsp.enable(server)
 				end,
 			})

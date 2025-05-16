@@ -27,6 +27,7 @@ return {
 				html = { "prettier" },
 				css = { "prettier" },
 				scss = { "prettier" },
+				typst = { "tinymist" },
 				-- -- Conform will run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				-- -- You can customize some of the format options for the filetype (:help conform.format)
