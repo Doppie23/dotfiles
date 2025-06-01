@@ -23,7 +23,7 @@ return {
 	{
 		"seblyng/roslyn.nvim",
 		dependencies = {
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 		},
 		ft = "cs",
 		opts = {
@@ -41,12 +41,13 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"saghen/blink.cmp",
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 			{
-				"williamboman/mason-lspconfig.nvim",
+				"mason-org/mason-lspconfig.nvim",
 				opts = {
 					ensure_installed = vim.tbl_keys(servers or {}),
 					automatic_installation = true,
+					automatic_enable = true,
 				},
 			},
 			{
@@ -59,13 +60,11 @@ return {
 			},
 		},
 		config = function()
-			require("mason-lspconfig").setup_handlers({
-				function(server)
-					local config = servers[server] or {}
-					vim.lsp.config(server, config)
-					vim.lsp.enable(server)
-				end,
-			})
+			for server, config in pairs(servers) do
+				vim.lsp.config(server, config)
+			end
+
+			require("mason-lspconfig").setup()
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
@@ -79,6 +78,26 @@ return {
 					vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
 						desc = "Show diagnostics under the cursor",
 					})
+
+					-- https://github.com/adibhanna/nvim/blob/main/lua/core/lsp.lua#L33-L54
+					vim.api.nvim_create_user_command("LspRestart", function()
+						local bufnr = vim.api.nvim_get_current_buf()
+						local clients
+						if vim.lsp.get_clients then
+							clients = vim.lsp.get_clients({ bufnr = bufnr })
+						else
+							---@diagnostic disable-next-line: deprecated
+							clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+						end
+
+						for _, client in ipairs(clients) do
+							vim.lsp.stop_client(client.id)
+						end
+
+						vim.defer_fn(function()
+							vim.cmd("edit")
+						end, 100)
+					end, {})
 				end,
 			})
 		end,

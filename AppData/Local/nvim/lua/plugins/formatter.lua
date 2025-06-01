@@ -7,7 +7,7 @@ return {
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo", "SaveWithoutFormat" },
 		dependencies = {
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 			{ "zapling/mason-conform.nvim", opts = {} },
 		},
 		opts = {
