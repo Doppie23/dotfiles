@@ -61,12 +61,6 @@ return {
 				function()
 					Snacks.terminal.toggle(nil, {
 						win = {
-							position = "float",
-							backdrop = 60,
-							height = 0.9,
-							width = 0.9,
-							zindex = 50,
-
 							keys = {
 								hide = {
 									"<esc>",
