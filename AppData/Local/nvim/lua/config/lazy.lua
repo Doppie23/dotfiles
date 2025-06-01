@@ -83,7 +83,7 @@ vim.keymap.set("n", "<esc>", function()
 end, { noremap = true, silent = true })
 
 vim.keymap.set({ "n", "v", "i" }, "<C-s>", "<cmd>write<CR>")
-vim.keymap.set({ "n", "v" }, "<leader>r", "*Ncgn", { remap = true, silent = true })
+vim.keymap.set("n", "g.", '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>', { desc = "Replay last change" })
 vim.keymap.set("n", "<C-_>", "gcc", { remap = true, silent = true })
 vim.keymap.set("v", "<C-_>", "gc", { remap = true, silent = true })
 
