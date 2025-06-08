@@ -8,6 +8,7 @@ local servers = {
 	ts_ls = {},
 	cssls = {},
 	html = {},
+	tailwindcss = {},
 	jsonls = {},
 	gopls = {},
 	tinymist = {
