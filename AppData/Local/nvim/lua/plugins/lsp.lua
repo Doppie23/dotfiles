@@ -18,6 +18,7 @@ local servers = {
 			semanticTokens = "disable",
 		},
 	},
+	zls = {},
 }
 
 return {
