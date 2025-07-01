@@ -65,6 +65,38 @@ config.keys = {
 			end
 		end),
 	},
+	{
+		key = "v",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "h",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "w",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.CloseCurrentPane({ confirm = false }),
+	},
+	{
+		key = "d",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action_callback(function(win, pane)
+			local dim = pane:get_dimensions()
+			local w = dim.pixel_width
+			local h = dim.pixel_height
+
+			if w > h then
+				win:perform_action(wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }), pane)
+				wezterm.log_info("widht", w)
+			else
+				win:perform_action(wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }), pane)
+				wezterm.log_info("heigh", h)
+			end
+		end),
+	},
 }
 
 for i = 1, 9 do
