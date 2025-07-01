@@ -37,23 +37,41 @@ config.keys = {
 		mods = "CTRL",
 		action = wezterm.action.SendString("\x1b[32;5u"),
 	},
+	{
+		key = "j",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action_callback(function(win, pane)
+			local window = wezterm.mux.get_window(win:window_id())
+			local tabs = window:tabs()
+			local tab_id = win:active_tab():tab_id()
+			wezterm.log_info(tab_id)
+
+			local active_tab_index = nil
+			for i, t in ipairs(tabs) do
+				if t:tab_id() == tab_id then
+					active_tab_index = i - 1 -- Convert to 0-based index
+					break
+				end
+			end
+
+			if active_tab_index == 1 then
+				win:perform_action(wezterm.action.ActivateTab(0), pane)
+			else
+				if #tabs >= 2 then
+					win:perform_action(wezterm.action.ActivateTab(1), pane)
+				else
+					win:perform_action(wezterm.action.SpawnTab("DefaultDomain"), pane)
+				end
+			end
+		end),
+	},
 }
-
-local tab_keys = { "x", "c", "v" }
-
-for i, key in ipairs(tab_keys) do
-	table.insert(config.keys, {
-		key = key,
-		mods = "LEADER",
-		action = wezterm.action.ActivateTab(i - 1),
-	})
-end
 
 for i = 1, 9 do
 	-- leader + number to activate that tab
 	table.insert(config.keys, {
 		key = tostring(i),
-		mods = "LEADER",
+		mods = "META",
 		action = wezterm.action.ActivateTab(i - 1),
 	})
 end
