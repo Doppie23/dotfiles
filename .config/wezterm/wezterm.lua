@@ -1,13 +1,48 @@
--- Pull in the wezterm API
 local wezterm = require("wezterm")
 
--- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- This is where you actually apply your config choices
+local scheme = "Abernathy"
+local scheme_def = wezterm.color.get_builtin_schemes()[scheme]
 
--- For example, changing the color scheme:
-config.color_scheme = "Abernathy"
+config.color_scheme = scheme
+
+config.colors = {
+	tab_bar = {
+		background = scheme_def.background,
+
+		active_tab = {
+			bg_color = scheme_def.background,
+			fg_color = scheme_def.foreground,
+			intensity = "Normal",
+			underline = "None",
+			italic = false,
+			strikethrough = false,
+		},
+
+		inactive_tab = {
+			bg_color = scheme_def.ansi[1],
+			fg_color = scheme_def.brights[1],
+		},
+
+		inactive_tab_hover = {
+			bg_color = scheme_def.ansi[5],
+			fg_color = scheme_def.brights[8],
+			italic = true,
+		},
+
+		new_tab = {
+			bg_color = scheme_def.ansi[1],
+			fg_color = scheme_def.brights[1],
+		},
+
+		new_tab_hover = {
+			bg_color = scheme_def.ansi[6],
+			fg_color = scheme_def.brights[8],
+			italic = true,
+		},
+	},
+}
 
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 
