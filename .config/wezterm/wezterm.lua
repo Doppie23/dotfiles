@@ -68,12 +68,12 @@ config.keys = {
 	{
 		key = "v",
 		mods = "CTRL|SHIFT",
-		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 	{
-		key = "h",
+		key = "s",
 		mods = "CTRL|SHIFT",
-		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
 	{
 		key = "w",
@@ -90,10 +90,8 @@ config.keys = {
 
 			if w > h then
 				win:perform_action(wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }), pane)
-				wezterm.log_info("widht", w)
 			else
 				win:perform_action(wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }), pane)
-				wezterm.log_info("heigh", h)
 			end
 		end),
 	},
@@ -120,5 +118,23 @@ wezterm.on("update-status", function(window, _)
 		{ Text = " " .. workspace .. " " },
 	}))
 end)
+
+local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
+
+smart_splits.apply_to_config(config, {
+	-- the default config is here, if you'd like to use the default keys,
+	-- you can omit this configuration table parameter and just use
+	-- smart_splits.apply_to_config(config)
+
+	-- directional keys to use in order of: left, down, up, right
+	direction_keys = { "h", "j", "k", "l" },
+	-- modifier keys to combine with direction_keys
+	modifiers = {
+		move = "CTRL", -- modifier to use for pane movement, e.g. CTRL+h to move left
+		resize = "META", -- modifier to use for pane resize, e.g. META+h to resize to the left
+	},
+	-- log level to use: info, warn, error
+	log_level = "info",
+})
 
 return config

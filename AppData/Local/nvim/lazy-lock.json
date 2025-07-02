@@ -26,6 +26,7 @@
   "retro-theme.nvim": { "branch": "main", "commit": "2dd8ee2bf9759a7a1ca744c801d4c81adf46ebc5" },
   "roslyn.nvim": { "branch": "main", "commit": "65769488fca061e5663c575c73da277ec1e5abc2" },
   "sequoia.nvim": { "branch": "master", "commit": "56f197d996507aa559cb00bc95305b631c4a6e76" },
+  "smart-splits.nvim": { "branch": "master", "commit": "039b1c280b849cc23190e94285083af9c2020596" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
