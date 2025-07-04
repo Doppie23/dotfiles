@@ -28,6 +28,8 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
+vim.o.virtualedit = "block"
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
