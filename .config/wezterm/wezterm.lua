@@ -101,7 +101,7 @@ config.keys = {
 		end),
 	},
 	{
-		key = "v",
+		key = "b",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
@@ -136,23 +136,12 @@ for i = 1, 9 do
 	-- leader + number to activate that tab
 	table.insert(config.keys, {
 		key = tostring(i),
-		mods = "META",
+		mods = "CTRL|SHIFT",
 		action = wezterm.action.ActivateTab(i - 1),
 	})
 end
 
 require("sessionizer").setup(config)
-
-local function basename(path)
-	return path:match("([^/\\]+)$") or path
-end
-wezterm.on("update-status", function(window, _)
-	local workspace = window:active_workspace()
-	workspace = basename(workspace)
-	window:set_left_status(wezterm.format({
-		{ Text = " " .. workspace .. " " },
-	}))
-end)
 
 local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 

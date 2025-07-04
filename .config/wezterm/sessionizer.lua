@@ -1,12 +1,13 @@
 local wezterm = require("wezterm")
 
 local sessionizer = wezterm.plugin.require("https://github.com/mikkasendke/sessionizer.wezterm")
-local history = wezterm.plugin.require("https://github.com/mikkasendke/sessionizer-history")
 
 local schema = {
-	options = { callback = history.Wrapper(sessionizer.DefaultCallback) },
-	sessionizer.DefaultWorkspace({}),
-	history.MostRecentWorkspace({}),
+	options = {
+		callback = function(_, pane, id, _)
+			pane:send_text('cd "' .. id .. '" && cls\r')
+		end,
+	},
 
 	sessionizer.FdSearch({
 		"D:/.onedrive bestanden/creatief/Code",
@@ -36,14 +37,6 @@ function m.setup(config)
 		key = "s",
 		mods = "ALT",
 		action = sessionizer.show(schema),
-	})
-	table.insert(config.keys, {
-		key = "w",
-		mods = "ALT",
-		action = sessionizer.show({
-			sessionizer.DefaultWorkspace({}),
-			sessionizer.AllActiveWorkspaces({}),
-		}),
 	})
 end
 
