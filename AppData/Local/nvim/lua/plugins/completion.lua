@@ -7,12 +7,9 @@ return {
 
 		opts = {
 			keymap = {
-				preset = "enter",
-
-				["<C-k>"] = { "select_prev", "fallback" },
-				["<C-j>"] = { "select_next", "fallback" },
-
-				["<C-n>"] = { "show_signature", "hide_signature", "fallback" },
+				preset = "default",
+				["<Up>"] = {},
+				["<Down>"] = {},
 			},
 
 			appearance = {
