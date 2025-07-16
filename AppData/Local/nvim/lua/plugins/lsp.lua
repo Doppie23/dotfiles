@@ -19,6 +19,7 @@ local servers = {
 		},
 	},
 	zls = {},
+	astro = {},
 }
 
 return {
