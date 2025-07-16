@@ -133,6 +133,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"json",
 		"jsonl",
 		"jsonc",
+		"astro",
 		"haskell",
 	},
 	callback = function()

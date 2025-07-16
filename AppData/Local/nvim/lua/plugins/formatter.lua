@@ -27,6 +27,7 @@ return {
 				html = { "prettier" },
 				css = { "prettier" },
 				scss = { "prettier" },
+				astro = { "prettier" },
 				typst = { "tinymist" },
 				-- -- Conform will run multiple formatters sequentially
 				-- python = { "isort", "black" },
@@ -39,6 +40,9 @@ return {
 				-- ["_"] = { "trim_whitespace" },
 			},
 			format_on_save = { lsp_format = "fallback" },
+			formatters = {
+				prettier = { command = "prettier" },
+			},
 		},
 		config = function(_, opts)
 			local format_opts = opts.format_on_save
