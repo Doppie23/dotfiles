@@ -4,25 +4,46 @@
 #Esc::
 #`::
 WinTitle := "ahk_exe wezterm-gui.exe"
-DetectHiddenWindows, On
 
 IfWinActive, %WinTitle%
 {
-    WinActivate, ahk_class Shell_TrayWnd
-    WinHide, %WinTitle%
-}
-else IfWinExist, %WinTitle%
-{
-    DetectHiddenWindows, Off
-    IfWinNotExist, %WinTitle%
+    ; Build a list of all matching window IDs
+    WinGet, idList, List, %WinTitle%
+    if (idList > 1)
     {
-        ; could not find the window so its hidden
-        WinShow, %WinTitle%
+        ; Find index of the currently active window in the list
+        WinGet, activeID, ID, A
+        nextID := ""  ; default blank
+        Loop, %idList%
+        {
+            thisID := idList%A_Index%
+            if (thisID = activeID)
+            {
+                ; Wrap to first after last
+                idxNext := (A_Index = idList ? 1 : A_Index + 1)
+                nextID := idList%idxNext%
+                break
+            }
+        }
+
+        ; Activate next instance if found
+        if (nextID != "")
+        {
+            WinActivate, ahk_id %nextID%
+            WinRestore, ahk_id %nextID%   ; Just in case it's minimized
+        }
+        return
     }
     else
     {
-        WinRestore, %WinTitle%
+        ; Only one instance: minimize the active window (original behavior)
+        WinMinimize, A
+        return
     }
+}
+else IfWinExist, %WinTitle%
+{
+    WinRestore, %WinTitle%
     WinActivate, %WinTitle%
 }
 else
