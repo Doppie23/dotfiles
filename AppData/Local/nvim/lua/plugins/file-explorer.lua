@@ -13,11 +13,35 @@ return {
 		opts = {
 			-- fill any relevant options here
 		},
+		-- keys = {
+		-- 	{
+		-- 		"<leader>e",
+		-- 		function()
+		-- 			vim.cmd([[Neotree filesystem reveal float toggle]])
+		-- 		end,
+		-- 		desc = "Open explorer",
+		-- 	},
+		-- },
+	},
+	{
+		"A7Lavinraj/fyler.nvim",
+		dependencies = { "echasnovski/mini.icons" },
+		opts = {
+			mappings = {
+				explorer = {
+					n = {
+						["q"] = "CloseView",
+						["<esc>"] = "CloseView",
+						["<CR>"] = "Select",
+					},
+				},
+			},
+		},
 		keys = {
 			{
 				"<leader>e",
 				function()
-					vim.cmd([[Neotree filesystem reveal float toggle]])
+					vim.cmd([[Fyler]])
 				end,
 				desc = "Open explorer",
 			},

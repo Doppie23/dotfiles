@@ -14,7 +14,6 @@ local schema = {
 		exclude = {
 			"node_modules",
 			".next",
-			"remarkable",
 			"AI",
 			"Add-ons",
 			"__pycache__",
