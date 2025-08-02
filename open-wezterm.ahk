@@ -30,7 +30,6 @@ IfWinActive, %WinTitle%
         if (nextID != "")
         {
             WinActivate, ahk_id %nextID%
-            WinRestore, ahk_id %nextID%   ; Just in case it's minimized
         }
         return
     }
@@ -43,7 +42,6 @@ IfWinActive, %WinTitle%
 }
 else IfWinExist, %WinTitle%
 {
-    WinRestore, %WinTitle%
     WinActivate, %WinTitle%
 }
 else
