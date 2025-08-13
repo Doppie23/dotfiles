@@ -10,4 +10,4 @@ Run the following as administator:
 .\deploy.ps1
 ```
 
-Uses deploy script from: https://github.com/rexim/dotfiles/tree/master
+Uses modified deploy script from: https://github.com/rexim/dotfiles/tree/master

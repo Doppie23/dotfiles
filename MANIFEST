@@ -1,5 +1,5 @@
-Documents\PowerShell\Microsoft.PowerShell_profile.ps1|symlink|
-.config\starship.toml|symlink|
-.config\wezterm|symlink|
-AppData\Local\nvim|symlink|
-AppData\Local\lazygit\config.yml|symlink|
+powershell\profile.ps1|Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+starship\starship.toml|.config\starship.toml
+wezterm|.config\wezterm
+nvim|AppData\Local\nvim
+lazygit\config.yml|AppData\Local\lazygit\config.yml
