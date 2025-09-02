@@ -42,6 +42,10 @@ end)
 vim.opt.breakindent = true
 vim.o.wrap = false
 
+-- folding
+vim.o.foldmethod = "indent"
+vim.o.foldenable = false
+
 -- Save undo history
 vim.opt.undofile = true
 
