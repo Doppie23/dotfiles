@@ -21,8 +21,8 @@ if is_windows then
 	vim.o.shell = "pwsh.exe"
 	vim.o.shellcmdflag =
 		"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command $PSStyle.OutputRendering = 'PlainText';"
-	vim.o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-	vim.o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.o.shellredir = "2>&1 | tee -Encoding UTF8 %s"
+	vim.o.shellpipe = "2>&1 | tee -Encoding UTF8 %s"
 	vim.o.shellquote = ""
 	vim.o.shellxquote = ""
 end
