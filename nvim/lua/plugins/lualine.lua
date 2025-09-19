@@ -4,7 +4,7 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 			{
-				"f-person/git-blame.nvim",
+				"f-person/git-blame.nvim", -- TODO: maybe use mini.git show_at_cursor()?
 				opts = {
 					message_template = "<author> • <date>",
 					date_format = "%r",

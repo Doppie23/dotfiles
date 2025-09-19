@@ -146,13 +146,6 @@ return {
 				desc = "Find Files",
 			},
 			{
-				"<leader>fg",
-				function()
-					Snacks.picker.git_files()
-				end,
-				desc = "Find Git Files",
-			},
-			{
 				"<leader>fp",
 				function()
 					Snacks.picker.projects()
