@@ -26,9 +26,9 @@ local servers = {
 return {
 	{
 		"seblyng/roslyn.nvim",
-		dependencies = {
-			"mason-org/mason.nvim",
-		},
+		-- dependencies = {
+		-- 	"mason-org/mason.nvim",
+		-- },
 		ft = "cs",
 		opts = {
 			-- your configuration comes here; leave empty for default settings
@@ -36,9 +36,9 @@ return {
 		},
 		config = function(_, opts)
 			require("roslyn").setup(opts)
-			if not require("mason-registry").is_installed("roslyn") then
-				vim.cmd("MasonInstall roslyn")
-			end
+			-- if not require("mason-registry").is_installed("roslyn") then
+			-- 	vim.cmd("MasonInstall roslyn")
+			-- end
 		end,
 	},
 	{
@@ -46,15 +46,6 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"saghen/blink.cmp",
-			"mason-org/mason.nvim",
-			{
-				"mason-org/mason-lspconfig.nvim",
-				opts = {
-					ensure_installed = vim.tbl_keys(servers or {}),
-					automatic_installation = true,
-					automatic_enable = true,
-				},
-			},
 			{
 				"folke/lazydev.nvim",
 				opts = {
@@ -65,11 +56,11 @@ return {
 			},
 		},
 		config = function()
+			vim.lsp.enable(vim.tbl_keys(servers))
+
 			for server, config in pairs(servers) do
 				vim.lsp.config(server, config)
 			end
-
-			require("mason-lspconfig").setup()
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)

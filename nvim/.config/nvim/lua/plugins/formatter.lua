@@ -6,10 +6,6 @@ return {
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo", "SaveWithoutFormat" },
-		dependencies = {
-			"mason-org/mason.nvim",
-			{ "zapling/mason-conform.nvim", opts = {} },
-		},
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
