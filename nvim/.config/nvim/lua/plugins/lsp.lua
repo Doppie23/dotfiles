@@ -20,6 +20,7 @@ local servers = {
 	},
 	zls = {},
 	astro = {},
+	hls = {},
 }
 
 return {
