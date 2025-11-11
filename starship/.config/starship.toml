@@ -83,7 +83,9 @@ symbol = "󰔷 "
 symbol = "󰆥 "
 
 [nix_shell]
+impure_msg = ""
 symbol = " "
+heuristic = true
 
 [nodejs]
 symbol = " "
@@ -129,3 +131,4 @@ symbol = " "
 
 [gradle]
 symbol = " "
+

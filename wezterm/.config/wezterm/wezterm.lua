@@ -56,7 +56,9 @@ config.font = wezterm.font("Cascadia Code")
 config.font_size = 12
 config.adjust_window_size_when_changing_font_size = false
 
-config.default_prog = { "pwsh.exe", "-NoLogo" }
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    config.default_prog = { "pwsh.exe", "-NoLogo" }
+end
 config.initial_cols = 132
 config.initial_rows = 52
 
