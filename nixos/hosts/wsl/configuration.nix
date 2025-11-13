@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
 
+# uses: https://github.com/nix-community/NixOS-WSL
+
 {
   imports = [
     <nixos-wsl/modules>
