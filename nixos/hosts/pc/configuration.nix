@@ -8,10 +8,10 @@
     imports =
         [ # Include the results of the hardware scan.
             ./hardware-configuration.nix
-            ./modules/git.nix
-            ./modules/nvim.nix
-            ./modules/shared.nix
-            ./modules/flakes.nix
+            ../modules/git.nix
+            ../modules/nvim.nix
+            ../modules/shared.nix
+            ../modules/flakes.nix
         ];
 
     # Bootloader.
