@@ -4,25 +4,15 @@
 
 { config, pkgs, ... }:
 
-let
-    getEnvOrFail = name:
-        let value = builtins.getEnv name;
-        in if value == "" then
-            throw "Environment variable '${name}' is required but not set. Please set it before building."
-        else
-            value;
-
-    GIT_NAME = getEnvOrFail "GIT_NAME";
-    GIT_EMAIL = getEnvOrFail "GIT_EMAIL";
-in
 {
     imports =
         [ # Include the results of the hardware scan.
             ./hardware-configuration.nix
+            ./modules/git.nix
+            ./modules/nvim.nix
+            ./modules/shared.nix
+            ./modules/flakes.nix
         ];
-
-    # Enable flakes
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     # Bootloader.
     boot.loader.grub.enable = true;
@@ -78,14 +68,6 @@ in
         pulse.enable = true;
     };
 
-    # Define a user account.
-    users.users.daniel = {
-        isNormalUser = true;
-        description = "daniel";
-        extraGroups = [ "networkmanager" "wheel" ];
-        shell = pkgs.fish;
-    };
-
     # Enable automatic login for the user.
     services.displayManager.autoLogin.enable = true;
     services.displayManager.autoLogin.user = "daniel";
@@ -96,65 +78,9 @@ in
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    environment.systemPackages = with pkgs; [
-        #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-        #  wget
-        wezterm
-        lazygit
-        stow
-        starship
-        ripgrep
-        tldr
-
-        # Language server packages
-        lua-language-server
-    ];
-
-    programs.neovim = {
-        enable = true;
-        defaultEditor = true;
-    };
-
-    programs.fish = {
-        enable = true;
-        interactiveShellInit = ''
-          set fish_greeting # Disable greeting
-
-          function nix
-              if test "$argv[1]" = "develop"
-                  command nix develop -c $SHELL $argv[2..]
-              else
-                  command nix $argv
-              end
-          end
-        '';
-        shellAliases = {
-            "nix-shell" = "nix-shell --run $SHELL";
-            "dev" = "nix develop -c $SHELL";
-        };
-        promptInit = "starship init fish | source";
-    };
+    environment.systemPackages = with pkgs; [ ];
 
     programs.firefox.enable = true;
-
-    programs.git = {
-        enable = true;
-        config = {
-            user.name = GIT_NAME;
-            user.email = GIT_EMAIL;
-        };
-    };
-
-    fonts.packages = with pkgs; [
-        cascadia-code
-    ];
-
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
-
-    # Allow dynamicly linked binaries
-    programs.nix-ld.enable = true;
-    programs.nix-ld.libraries = with pkgs; [ ];
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
