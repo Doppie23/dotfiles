@@ -11,5 +11,6 @@
 
         # Language server packages
         lua-language-server
+        nixd
     ];
 }
