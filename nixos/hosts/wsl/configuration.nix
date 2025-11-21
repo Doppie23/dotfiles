@@ -27,9 +27,8 @@
                     devices = ["Datacentrum"];
                     ignorePatterns = [
                         "(?d).stack-work"
-                        "!/Jaar 3/Semester 2/"
-                        "!/Jaar 3/Semester 2/Capita Selecta/"
-                        "!/Jaar 3/Semester 2/Capita Selecta/**"
+                        "!/capita-selecta/"
+                        "!/capita-selecta/**"
                         "*"
                     ];
                 };
