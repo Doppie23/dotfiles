@@ -27,9 +27,10 @@
                     devices = ["Datacentrum"];
                     ignorePatterns = [
                         "(?d).stack-work"
-                        "!/capita-selecta/"
-                        "!/capita-selecta/**"
-                        "*"
+                        "/blackboard-takeout/"
+                        "/Jaar 1/"
+                        "/Jaar 2/"
+                        "/Jaar 3/"
                     ];
                 };
             };
