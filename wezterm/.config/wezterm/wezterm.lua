@@ -57,7 +57,7 @@ config.font_size = 12
 config.adjust_window_size_when_changing_font_size = false
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.default_prog = { "pwsh.exe", "-NoLogo" }
+	config.default_prog = { "pwsh.exe", "-NoLogo" }
 end
 config.initial_cols = 132
 config.initial_rows = 52
@@ -97,7 +97,7 @@ config.keys = {
 				if #tabs >= 2 then
 					win:perform_action(wezterm.action.ActivateTab(1), pane)
 				else
-					win:perform_action(wezterm.action.SpawnTab("DefaultDomain"), pane)
+					win:perform_action(wezterm.action.SpawnTab("CurrentPaneDomain"), pane)
 				end
 			end
 		end),
@@ -131,6 +131,13 @@ config.keys = {
 				win:perform_action(wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }), pane)
 			end
 		end),
+	},
+	{
+		key = "Enter",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SpawnCommandInNewTab({
+			domain = { DomainName = "WSL:NixOS" },
+		}),
 	},
 }
 
