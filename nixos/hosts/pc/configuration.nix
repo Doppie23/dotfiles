@@ -11,6 +11,7 @@
             ../modules/git.nix
             ../modules/nvim.nix
             ../modules/shared.nix
+            ../modules/wezterm.nix
             ../modules/flakes.nix
         ];
 
