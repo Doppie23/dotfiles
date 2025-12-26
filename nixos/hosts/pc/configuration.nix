@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, zen-browser, ... }:
 
 {
     imports =
@@ -16,9 +16,19 @@
         ];
 
     # Bootloader.
-    boot.loader.grub.enable = true;
-    boot.loader.grub.device = "/dev/sda";
-    boot.loader.grub.useOSProber = true;
+    boot = {
+        consoleLogLevel = 3;
+        loader = {
+            grub = {
+                enable = true;
+                useOSProber = true;
+                devices = [ "nodev" ];
+                efiSupport = true;
+            };
+            efi.canTouchEfiVariables = true;
+            timeout = 5;
+        };
+    };
 
     networking.hostName = "nixos"; # Define your hostname.
 
@@ -69,17 +79,11 @@
         pulse.enable = true;
     };
 
-    # Enable automatic login for the user.
-    services.displayManager.autoLogin.enable = true;
-    services.displayManager.autoLogin.user = "daniel";
-
-    # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-    systemd.services."getty@tty1".enable = false;
-    systemd.services."autovt@tty1".enable = false;
-
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    environment.systemPackages = with pkgs; [ ];
+    environment.systemPackages = with pkgs; [
+        zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ];
 
     programs.firefox.enable = true;
 
@@ -97,6 +101,6 @@
     # this value at the release version of the first install of this system.
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "25.05"; # Did you read the comment?
+    system.stateVersion = "25.11"; # Did you read the comment?
 
 }
