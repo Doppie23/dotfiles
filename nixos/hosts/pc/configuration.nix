@@ -83,6 +83,13 @@
     # $ nix search wget
     environment.systemPackages = with pkgs; [
         zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+        wineWowPackages.stable
+        wine
+        wine64
+        wineWowPackages.staging
+        winetricks
+        wineWowPackages.waylandFull
     ];
 
     programs.firefox.enable = true;
