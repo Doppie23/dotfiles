@@ -90,7 +90,14 @@
         wineWowPackages.staging
         winetricks
         wineWowPackages.waylandFull
+
+        winboat
     ];
+
+    virtualisation.docker = {
+      enable = true;
+    };
+    users.users.daniel.extraGroups = [ "docker" ];
 
     programs.firefox.enable = true;
 
