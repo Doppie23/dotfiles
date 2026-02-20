@@ -10,6 +10,7 @@ local servers = {
 	html = {},
 	tailwindcss = {},
 	jsonls = {},
+	biome = {},
 	gopls = {},
 	tinymist = {
 		settings = {
