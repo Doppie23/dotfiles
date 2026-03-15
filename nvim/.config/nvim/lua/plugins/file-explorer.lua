@@ -27,6 +27,7 @@ return {
 	{
 		"A7Lavinraj/fyler.nvim",
 		dependencies = { "echasnovski/mini.icons" },
+		url = "https://github.com/Doppie23/fyler.nvim.git",
 		config = function(_, opts)
 			local fyler = require("fyler")
 			fyler.setup(opts)
