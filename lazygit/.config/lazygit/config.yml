@@ -3,3 +3,5 @@ gui:
 quitOnTopLevelReturn: true
 os:
   editPreset: "nvim"
+services:
+  "git.science.uu.nl": gitlab:git.science.uu.nl
