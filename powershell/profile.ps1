@@ -5,6 +5,13 @@ Invoke-Expression (&starship init powershell)
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
 
+Set-PSReadLineKeyHandler -Chord Ctrl+t -ScriptBlock {
+    $result = fzf
+    if ($result) {
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert("`"$result`"")
+    }
+}
+
 # FZF and after open explorer at file location
 function ifzf {
   ii (Split-Path -Parent (fzf))
