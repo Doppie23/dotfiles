@@ -23,6 +23,7 @@ local servers = {
 	astro = {},
 	hls = {},
     nixd = {},
+	clangd = {},
 }
 
 return {
