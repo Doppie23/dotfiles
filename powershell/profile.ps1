@@ -1,3 +1,5 @@
+Set-PSReadlineOption -EditMode vi
+
 # Starship
 Invoke-Expression (&starship init powershell)
 
