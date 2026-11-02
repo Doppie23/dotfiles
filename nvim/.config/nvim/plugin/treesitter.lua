@@ -25,7 +25,10 @@ vim.api.nvim_create_autocmd("FileType", {
 			vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 			vim.wo[0][0].foldmethod = "expr"
 
-			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			local noIndent = { "cs" }
+			if not vim.list_contains(noIndent, ev.match) then
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end
 		end
 	end,
 })
