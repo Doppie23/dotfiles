@@ -54,3 +54,7 @@ end, { desc = "Git Status" })
 vim.keymap.set("n", "<leader>fb", function()
 	Snacks.picker.buffers()
 end, { desc = "Buffers" })
+
+vim.keymap.set("n", "<leader>ss", function()
+    Snacks.picker.lsp_symbols()
+end, { desc = "LSP Workspace Symbols" })
