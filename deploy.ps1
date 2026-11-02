@@ -5,9 +5,9 @@ function Symlink-File {
         Write-Warning "$DestPath is already symlinked"
     } else {
         if ((Get-Item $SourcePath) -is [System.IO.DirectoryInfo]) {
-            cmd /c mklink /D "$DestPath" "$SourcePath"
+            New-Item -ItemType Junction -Path "$DestPath" -Target "$SourcePath" | Out-Null
         } else {
-            cmd /c mklink "$DestPath" "$SourcePath"
+            New-Item -ItemType HardLink -Path "$DestPath" -Target "$SourcePath" | Out-Null
         }
         echo "$DestPath has been symlinked"
     }
