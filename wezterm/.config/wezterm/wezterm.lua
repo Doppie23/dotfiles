@@ -139,16 +139,32 @@ config.keys = {
 			domain = { DomainName = "WSL:NixOS" },
 		}),
 	},
+    {
+        key = "w",
+        mods = "CTRL|SHIFT|ALT",
+        action = wezterm.action.ShowLauncherArgs { flags = "WORKSPACES" },
+    },
 }
 
 for i = 1, 9 do
 	-- leader + number to activate that tab
 	table.insert(config.keys, {
-		key = tostring(i),
+		key = "phys:" .. tostring(i),
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ActivateTab(i - 1),
 	})
+
+	table.insert(config.keys, {
+		key = "phys:" .. tostring(i),
+		mods = "CTRL|SHIFT|ALT",
+		action = wezterm.action.SwitchToWorkspace { name = i == 1 and "default" or "workspace_" .. tostring(i) },
+	})
 end
+
+wezterm.on('update-status', function(window, pane)
+  local workspace = window:active_workspace()
+  window:set_right_status(' ' .. workspace .. ' ')
+end)
 
 require("sessionizer").setup(config)
 
